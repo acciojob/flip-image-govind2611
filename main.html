@@ -3,21 +3,31 @@
   <head>
     <title>Flip images</title>
     <style>
-      /* CSS to change the image when hovering */
+      /* CSS for the image container */
       #flip {
         width: 300px;
         height: 200px;
-        background-image: url("https://images.pexels.com/photos/6785279/pexels-photo-6785279.jpeg");
-        background-size: cover;
-      }
-
-      #flip:hover {
-        background-image: url("https://live.staticflickr.com/8138/29099429912_0659caf55b_b.jpg");
       }
     </style>
   </head>
   <body>
     <!-- HTML with the image -->
-    <div id="flip"></div>
+    <div id="flip">
+      <img id="image" src="https://images.pexels.com/photos/6785279/pexels-photo-6785279.jpeg" alt="Initial Image" width="300" height="200">
+    </div>
+
+    <script>
+      // JavaScript to handle image flip on hover
+      const image = document.getElementById('image');
+      const finalImageURL = 'https://live.staticflickr.com/8138/29099429912_0659caf55b_b.jpg';
+
+      image.addEventListener('mouseover', function () {
+        image.src = finalImageURL;
+      });
+
+      image.addEventListener('mouseout', function () {
+        image.src = 'https://images.pexels.com/photos/6785279/pexels-photo-6785279.jpeg';
+      });
+    </script>
   </body>
 </html>
